@@ -5,27 +5,27 @@ server {
     server_name ${NGINX_SERVER_NAME};
 
     location /console/api {
-      proxy_pass http://api:5001;
+      proxy_pass http://docker-api-1:5004;
       include proxy.conf;
     }
 
     location /api {
-      proxy_pass http://api:5001;
+      proxy_pass http://docker-api-1:5004;
       include proxy.conf;
     }
 
     location /v1 {
-      proxy_pass http://api:5001;
+      proxy_pass http://docker-api-1:5004;
       include proxy.conf;
     }
 
     location /files {
-      proxy_pass http://api:5001;
+      proxy_pass http://docker-api-1:5004;
       include proxy.conf;
     }
 
     location /explore {
-      proxy_pass http://web:3000;
+      proxy_pass http://docker-web-1:3000;
       include proxy.conf;
     }
 
@@ -36,17 +36,17 @@ server {
     }
 
     location / {
-      proxy_pass http://web:3000;
+      proxy_pass http://docker-web-1:3000;
       include proxy.conf;
     }
 
     location /mcp {
-      proxy_pass http://api:5001;
+      proxy_pass http://docker-api-1:5004;
       include proxy.conf;
     }
 
     location /triggers {
-      proxy_pass http://api:5001;
+      proxy_pass http://docker-api-1:5004;
       include proxy.conf;
     }
     
